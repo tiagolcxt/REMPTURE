@@ -11,6 +11,9 @@
 *.import
 *.log
 
+# Ignorar pasta de configurações do Godot
+.godot/
+
 # Ignorar arquivos de sistema operacional
 .DS_Store
 Thumbs.db
