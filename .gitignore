@@ -1,2 +1,17 @@
-# Godot 4+ specific ignores
-.godot/
+# Godot 4 - Ignorar arquivos temporários e de build
+.import/
+.export/
+.export_presets.cfg
+
+# Ignorar arquivos temporários de cenas e configurações locais
+*.godot/tmp/*
+*.cfg~
+*.tscn~
+*.tres~
+*.import
+*.log
+
+# Ignorar arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
