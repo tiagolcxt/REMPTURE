@@ -7,11 +7,13 @@ size = Vector2(27, 26.25)
 
 [node name="Barrel" type="Area2D"]
 texture_filter = 1
-scale = Vector2(4, 4)
+scale = Vector2(1.8, 1.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("1_qs7lq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.125)
+scale = Vector2(1.8, 1.8)
 shape = SubResource("RectangleShape2D_jtmp0")

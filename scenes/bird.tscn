@@ -1,43 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuwqqgamgom8u"]
+[gd_scene load_steps=5 format=3 uid="uid://cuwqqgamgom8u"]
 
 [ext_resource type="Script" uid="uid://cp4krds4b3hae" path="res://scripts/bird.gd" id="1_6j6xy"]
-[ext_resource type="Texture2D" uid="uid://dyasm1fruq87r" path="res://assets/img/obstacles/Bird.png" id="1_ekfsl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lt270"]
-atlas = ExtResource("1_ekfsl")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h767s"]
-atlas = ExtResource("1_ekfsl")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_17pgx"]
-atlas = ExtResource("1_ekfsl")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fytc"]
-atlas = ExtResource("1_ekfsl")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_668k3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lt270")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h767s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_17pgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fytc")
-}],
-"loop": true,
-"name": &"flying",
-"speed": 10.0
-}]
+[ext_resource type="Texture2D" uid="uid://1kr460dxgbqu" path="res://assets/img/obstacles/morcego.png" id="2_3po83"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rh1fu"]
 radius = 40.0
@@ -49,13 +13,11 @@ size = Vector2(45, 52)
 [node name="Bird" type="Area2D"]
 script = ExtResource("1_6j6xy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_668k3")
-animation = &"flying"
-autoplay = "flying"
-frame_progress = 0.981582
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 1)
+scale = Vector2(0.10957, 0.102734)
+texture = ExtResource("2_3po83")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(21, -3)

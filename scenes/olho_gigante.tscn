@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://xq2ytnfpydk0"]
+
+[ext_resource type="Texture2D" uid="uid://drbq3fxcsmooy" path="res://assets/img/background/Olho Colossal na Janela Gótica.png" id="1_s00fc"]
+
+[node name="OlhoGigante" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(547.5, 184.5)
+scale = Vector2(0.407227, 0.369141)
+texture = ExtResource("1_s00fc")

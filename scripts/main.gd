@@ -14,24 +14,24 @@ var speed: float
 var score: int = 0
 var high_score: int = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hud = Hud.new($HUD)
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(start_new_game)
-	$SoundTrack.play()
 	start_new_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if game_running:
-		speed = min(GLOBALS.START_SPEED + score / GLOBALS.SPEED_MODIFIER, GLOBALS.MAX_SPEED)
+		speed = GLOBALS.START_SPEED
 		difficulty = min(score / GLOBALS.SPEED_MODIFIER, GLOBALS.MAX_DIFFICULTY)
 
 		generate_obstacles()
 
-		$CharacterBody2D.position.x += speed
+		$Player.position.x += speed
 		$Camera2D.position.x += speed
 		
 		score += speed
@@ -63,8 +63,10 @@ func start_new_game():
 	$GameOver.hide()
 
 func reset_scenes():
-	$CharacterBody2D.position = GLOBALS.CHARACTER_START_POSITION
-	$CharacterBody2D.velocity = Vector2i(0,0)
+	$Player.position = GLOBALS.CHARACTER_START_POSITION
+	$Player.velocity = Vector2i(0,0)
+	$Ghost.position = GLOBALS.GHOST_START_POSITION
+	#$Ghost.velocity = Vector2i(0,0)
 	$Camera2D.position = GLOBALS.CAMERA_START_POSITION
 	$Ground.position = Vector2i(0,0)
 
@@ -78,14 +80,15 @@ func generate_obstacles():
 		var obstacle_type = obstacles.get_random_obstacle_type()
 		var obstacle
 		var max_obstacles = difficulty + 1
+		var ground_y = $Ground.position.y  # Usa a posição real do chão
 
 		for i in range(randi() % max_obstacles + 1):
 			obstacle = obstacle_type.instantiate()
 
 			var obstacle_height = obstacle.get_node("Sprite2D").texture.get_height()
 			var obstacle_scale = obstacle.get_node("Sprite2D").scale
-			var obstacle_x: int =  screen_size.x + score + 100 + (i * 100)
-			var obstacle_y: int =  screen_size.y - ground_height - (obstacle_height * obstacle_scale.y / 2) + 5
+			var obstacle_x: int = screen_size.x + score + 100 + (i * 100)
+			var obstacle_y: int = ground_y - (obstacle_height * obstacle_scale.y / 2) + 565
 
 			obstacles.last_spawned_obstactle = obstacle
 			add_obstacle(obstacle, obstacle_x, obstacle_y)
@@ -93,9 +96,10 @@ func generate_obstacles():
 		if difficulty == GLOBALS.MAX_DIFFICULTY:
 			if (randi() % 2) == 0:
 				obstacle = obstacles.BIRD_SCENE.instantiate()
-				var obstacle_x: int =  screen_size.x + score + 100
-				var obstacle_y: int =  obstacles.get_random_bird_spawn_height()
+				var obstacle_x: int = screen_size.x + score + 100
+				var obstacle_y: int = obstacles.get_random_bird_spawn_height()
 				add_obstacle(obstacle, obstacle_x, obstacle_y)
+
 
 func add_obstacle(obstacle, x, y):
 	obstacle.position = Vector2i(x, y)
@@ -104,7 +108,7 @@ func add_obstacle(obstacle, x, y):
 	obstacles.spawned_obstacles.append(obstacle)
 
 func hit_obstacle(body):
-	if body.name == "CharacterBody2D":
+	if body.name == "Player":
 		$CharacterHurt.play()
 		game_over()
 
