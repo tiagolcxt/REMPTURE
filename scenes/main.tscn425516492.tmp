@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxhxs1t68mnu7"]
+
+[ext_resource type="Script" uid="uid://deeede0i4iw5l" path="res://scripts/main.gd" id="1_adgqn"]
+[ext_resource type="PackedScene" uid="uid://dx7lwrwftm8oe" path="res://scenes/parallax_background.tscn" id="1_w1cr1"]
+[ext_resource type="PackedScene" uid="uid://cc56d6il42hwp" path="res://scenes/ground.tscn" id="2_kbm85"]
+[ext_resource type="PackedScene" uid="uid://cufenoygodkl1" path="res://scenes/character.tscn" id="3_ir76f"]
+[ext_resource type="PackedScene" uid="uid://hdsox5ob3ahb" path="res://scenes/hud.tscn" id="5_fewo3"]
+[ext_resource type="PackedScene" uid="uid://krrn8dgeni12" path="res://scenes/game_over.tscn" id="6_jk37s"]
+[ext_resource type="AudioStream" uid="uid://bw55jlexk2dby" path="res://assets/sound/hurt.wav" id="8_b564n"]
+[ext_resource type="PackedScene" uid="uid://dkwbq2wxa1p0p" path="res://scenes/ghost.tscn" id="8_tipki"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_adgqn")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_w1cr1")]
+
+[node name="Ground" parent="." instance=ExtResource("2_kbm85")]
+
+[node name="Player" parent="." instance=ExtResource("3_ir76f")]
+position = Vector2(184, 453)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_fewo3")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_jk37s")]
+process_mode = 2
+
+[node name="CharacterHurt" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_b564n")
+
+[node name="Ghost" parent="." instance=ExtResource("8_tipki")]
+position = Vector2(-48, -60)

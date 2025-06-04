@@ -20,6 +20,7 @@ func _ready():
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(start_new_game)
+	$SoundTrack.play()
 	start_new_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +31,7 @@ func _process(delta):
 
 		generate_obstacles()
 
-		$Player.position.x += speed
+		$CharacterBody2D.position.x += speed
 		$Camera2D.position.x += speed
 		
 		score += speed
@@ -62,10 +63,8 @@ func start_new_game():
 	$GameOver.hide()
 
 func reset_scenes():
-	$Player.position = GLOBALS.CHARACTER_START_POSITION
-	$Player.velocity = Vector2i(0,0)
-	$Ghost.position = GLOBALS.GHOST_START_POSITION
-	$Player.velocity = Vector2i(0,0)
+	$CharacterBody2D.position = GLOBALS.CHARACTER_START_POSITION
+	$CharacterBody2D.velocity = Vector2i(0,0)
 	$Camera2D.position = GLOBALS.CAMERA_START_POSITION
 	$Ground.position = Vector2i(0,0)
 
@@ -105,7 +104,7 @@ func add_obstacle(obstacle, x, y):
 	obstacles.spawned_obstacles.append(obstacle)
 
 func hit_obstacle(body):
-	if body.name == "Player":
+	if body.name == "CharacterBody2D":
 		$CharacterHurt.play()
 		game_over()
 
