@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://hdsox5ob3ahb"]
+
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_avnpt"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 168.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_font_sizes/font_size = 40
+text = "SCORE	: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -303.0
+offset_bottom = 51.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_font_sizes/font_size = 40
+text = "HIGH SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -25.5
+offset_right = 84.0
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_font_sizes/font_size = 40
+text = "PRESS SPACE TO PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArrowUp" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -106.0
+offset_right = 464.0
+offset_bottom = -51.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_font_sizes/font_size = 40
+text = "ARROW UP 	⇑  - JUMP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArrowDown" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+offset_right = 530.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_font_sizes/font_size = 40
+text = "ARROW DOWN ⇓  - DUCK"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx7lwrwftm8oe"]
+
+[ext_resource type="Texture2D" uid="uid://bl0j5tk81q2jq" path="res://assets/img/background/céu.png" id="1_yqcdc"]
+[ext_resource type="Texture2D" uid="uid://bmrl80085lt83" path="res://assets/img/background/ChatGPT Image 18 de mai. de 2025, 14_45_22.png" id="2_yqcdc"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer_externo" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.667)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_externo"]
+texture_filter = 1
+position = Vector2(0, -113)
+scale = Vector2(0.75, 0.743164)
+texture = ExtResource("1_yqcdc")
+centered = false
+
+[node name="ParallaxLayer2_parede" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2_parede"]
+texture_filter = 1
+position = Vector2(0, -115)
+scale = Vector2(0.75, 0.632813)
+texture = ExtResource("2_yqcdc")
+centered = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxLayer2_parede"]

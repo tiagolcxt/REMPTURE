@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkwbq2wxa1p0p"]
+
+[ext_resource type="Script" uid="uid://075dq7uqml72" path="res://scripts/ghost.gd" id="1_bbnym"]
+[ext_resource type="Texture2D" uid="uid://d1d7xltfwlsnh" path="res://assets/img/background/fantasma-Photoroom.png" id="1_l5lq6"]
+
+[node name="Ghost" type="Node2D"]
+position = Vector2(-300, 0)
+script = ExtResource("1_bbnym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.127784, 0.107031)
+texture = ExtResource("1_l5lq6")
+centered = false
+flip_h = true
