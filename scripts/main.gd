@@ -108,9 +108,21 @@ func add_obstacle(obstacle, x, y):
 	obstacles.spawned_obstacles.append(obstacle)
 
 func hit_obstacle(body):
-	if body.name == "Player":
+	if body.name == "Player" and not body.is_invulnerable:
 		$CharacterHurt.play()
+
+		# Recuo no eixo X
+		body.position.x -= body.knockback_distance
+
+		# Ativa modo invulnerável
+		body.is_invulnerable = true
+		body.invulnerable_timer = body.invulnerable_time
+		body.blink_timer = body.blink_interval
+		
+func _on_ghost_body_entered(body):
+	if body.name == "Player":
 		game_over()
+
 
 func game_over():
 	update_high_score()
