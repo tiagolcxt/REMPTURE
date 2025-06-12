@@ -70,3 +70,12 @@ theme_override_font_sizes/font_size = 40
 text = "ARROW DOWN ⇓  - DUCK"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CombustivelLabel" type="Label" parent="."]
+offset_left = 451.0
+offset_top = 6.0
+offset_right = 484.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("1_avnpt")
+text = "Combustível: 1000"
+uppercase = true

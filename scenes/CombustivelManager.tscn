@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f8g1wpr4i0rj"]
+
+[ext_resource type="Script" uid="uid://ctgv3tuibeowk" path="res://scripts/combustivel_manager.gd" id="1_vw1fa"]
+
+[node name="CombustivelManager" type="Node"]
+script = ExtResource("1_vw1fa")

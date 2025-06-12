@@ -21,3 +21,6 @@ func show_score(score):
 
 func show_high_score(high_score):
 	hud_instance.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / GLOBALS.SCORE_MODIFIER)
+
+func show_combustivel(valor):
+	hud_instance.get_node("CombustivelLabel").text = "COMBUSTÍVEL: " + str(round(valor))

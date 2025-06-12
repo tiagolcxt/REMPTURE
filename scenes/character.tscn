@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cufenoygodkl1"]
+[gd_scene load_steps=7 format=3 uid="uid://cufenoygodkl1"]
 
 [ext_resource type="Script" uid="uid://dju7jk5w7cw3p" path="res://scripts/character.gd" id="1_d6mhy"]
 [ext_resource type="Texture2D" uid="uid://rmndit1cb66e" path="res://assets/img/background/rempture-Photoroom.png" id="2_lrhn5"]
 [ext_resource type="AudioStream" uid="uid://dscpg6m666dta" path="res://assets/sound/jump.wav" id="2_rdkre"]
+[ext_resource type="Texture2D" uid="uid://ds86y4cj8nc88" path="res://assets/img/288x288 textures (71).png" id="4_my7n2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x70y7"]
 size = Vector2(11, 17)
@@ -31,3 +32,7 @@ shape = SubResource("RectangleShape2D_7wrv8")
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rdkre")
 volume_db = -25.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4, 2)
+texture = ExtResource("4_my7n2")

@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bw55jlexk2dby" path="res://assets/sound/hurt.wav" id="8_b564n"]
 [ext_resource type="PackedScene" uid="uid://dkwbq2wxa1p0p" path="res://scenes/ghost.tscn" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://drbq3fxcsmooy" path="res://assets/img/background/Olho Colossal na Janela Gótica.png" id="9_85g3d"]
-[ext_resource type="PackedScene" uid="uid://f8g1wpr4i0rj" path="res://scenes/CombustivelManager.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://hem0vjcahe57" path="res://scenes/combustivel.tscn" id="10_choun"]
 
 [sub_resource type="GDScript" id="GDScript_choun"]
 script/source = "extends Node
@@ -85,4 +85,5 @@ position = Vector2(-88, -72)
 script = SubResource("GDScript_choun")
 olho_scene = SubResource("PackedScene_ya4ey")
 
-[node name="CombustivelManager" parent="." instance=ExtResource("10_choun")]
+[node name="Combustivel" parent="." instance=ExtResource("10_choun")]
+position = Vector2(1462, 267)

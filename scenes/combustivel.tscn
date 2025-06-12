@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hem0vjcahe57"]
+
+[ext_resource type="Script" uid="uid://bfw62qatst5sv" path="res://scripts/combustivel.gd" id="1_lx1dj"]
+[ext_resource type="Texture2D" uid="uid://clqyxjuuev0r3" path="res://assets/img/Borboleta Fantasmagórica Brilhante.png" id="1_uejwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx1dj"]
+radius = 38.2099
+
+[node name="Combustivel" type="Area2D"]
+script = ExtResource("1_lx1dj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_uejwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lx1dj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
