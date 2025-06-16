@@ -38,7 +38,7 @@ func _process(delta):
 	position.x = lerp(position.x, target_x, delta * Globals.GHOST_FOLLOW_SPEED)
 	position.y = lerp(position.y, target_y, delta * Globals.GHOST_FOLLOW_SPEED)
 
-	# Alternar alpha (transparência) suavemente
+	# Atualiza o alpha alternando suavemente
 	current_alpha += Globals.GHOST_FADE_SPEED * delta * alpha_direction
 	if current_alpha >= Globals.GHOST_MAX_ALPHA:
 		current_alpha = Globals.GHOST_MAX_ALPHA
@@ -47,10 +47,11 @@ func _process(delta):
 		current_alpha = Globals.GHOST_MIN_ALPHA
 		alpha_direction = 1
 
-	# Aplicar a transparência no sprite
-	var color = sprite.modulate
-	color.a = current_alpha
-	sprite.modulate = color
+	# Define a cor base (cinza médio)
+	var base_color = Color(0.0, 0.0, 0.0, 1.0)
+	# Aplica o alpha alternado
+	base_color.a = current_alpha
+	sprite.modulate = base_color
 
 func _on_body_entered(body):
 	if body.name == "Player" or body is CharacterBody2D:

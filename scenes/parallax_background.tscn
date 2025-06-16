@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bmrl80085lt83" path="res://assets/img/background/ChatGPT Image 18 de mai. de 2025, 14_45_22.png" id="2_yqcdc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yqcdc"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 
@@ -25,9 +29,11 @@ motion_mirroring = Vector2(1152, 0)
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer2_parede"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_yqcdc")
+use_parent_material = true
 position = Vector2(0, -115)
 scale = Vector2(0.75, 0.632813)
 texture = ExtResource("2_yqcdc")
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="ParallaxLayer2_parede"]
+color = Color(0.5, 0.5, 0.5, 1)

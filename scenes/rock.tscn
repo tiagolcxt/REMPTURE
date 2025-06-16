@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3xt5tefbkm1u"]
+[gd_scene load_steps=3 format=3 uid="uid://d3xt5tefbkm1u"]
 
-[ext_resource type="Texture2D" uid="uid://dkw6thaio0hfe" path="res://assets/img/obstacles/rock.png" id="1_ae5wk"]
+[ext_resource type="Texture2D" uid="uid://drhuri5b2s1yd" path="res://assets/img/obstacles/gargula - 1.png" id="1_1di36"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mek2u"]
+size = Vector2(76.4167, 100)
 
 [node name="Rock" type="Area2D"]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_ae5wk")
+scale = Vector2(0.235674, 0.235674)
+texture = ExtResource("1_1di36")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(1.33333, -7.66667, 6.66667, -7.33333, 14.6667, 0.333333, 18, 5.33333, 25.3333, 7.33333, 28.6667, 14.6667, -28.5, 15, -28.3333, 1, -24.6667, -8.66667, -20.6667, -13, -14, -15, -4.66667, -15)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.125, 2.66667)
+shape = SubResource("RectangleShape2D_mek2u")

@@ -10,9 +10,10 @@ var screen_size: Vector2i
 var ground_height: int
 
 var game_running: bool = false
+var aguardando_inicio: bool = true
 var difficulty: int = 0
 
-var speed: float
+var speed: float = 0.0
 var score: int = 0
 var high_score: int = 0
 
@@ -21,30 +22,32 @@ func _ready():
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
 	$GameOver.get_node("Button").pressed.connect(start_new_game)
+	get_tree().paused = false
 	start_new_game()
 
 func _process(delta):
-	if game_running:
-		# Velocidade fixa, sem depender do combustível
+	# Mostra sempre para debug
+	hud.show_combustivel(int(combustivel_manager.combustivel))
+	hud.show_score(score)
+	
+	# Debug: imprime o estado dos flags
+	print("DEBUG -> game_running:", game_running, " aguardando_inicio:", aguardando_inicio)
+
+	# Só consome combustível se o jogo estiver rodando e não estiver esperando start
+	consumir_combustivel_se_jogo_rodando(delta)
+
+	if game_running and not aguardando_inicio:
 		speed = GLOBALS.START_SPEED
-		
-		# Diminuir combustível a 2 unidades por segundo real
-		combustivel_manager.consumir_combustivel(delta)
-		
+
 		difficulty = min(score / GLOBALS.SPEED_MODIFIER, GLOBALS.MAX_DIFFICULTY)
 
 		generate_obstacles()
 		generate_combustivel()
 
-		# Movimento fixo sem multiplicar por delta
 		$Player.position.x += speed
 		$Camera2D.position.x += speed
 
 		score += speed
-		hud.show_score(score)
-
-		# Atualizar HUD do combustível
-		hud.show_combustivel(int(combustivel_manager.combustivel))
 
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x += screen_size.x
@@ -58,15 +61,28 @@ func _process(delta):
 				combustiveis_controller.remove_combustivel(c)
 
 	else:
-		if Input.is_action_pressed("ui_accept"):
+		# Se estiver aguardando início, detectar input pra começar o jogo
+		if aguardando_inicio and Input.is_action_just_pressed("ui_accept"):
 			game_running = true
+			aguardando_inicio = false
 			hud.hide_start_hud()
+
+func consumir_combustivel_se_jogo_rodando(delta):
+	if game_running and not aguardando_inicio:
+		combustivel_manager.consumir_combustivel(delta)
+	else:
+		# Aqui você pode usar para debug se quiser, por exemplo:
+		# print("Consumo de combustível pausado: game_running =", game_running, ", aguardando_inicio =", aguardando_inicio)
+		pass
 
 func start_new_game():
 	score = 0
 	difficulty = 0
 	game_running = false
+	aguardando_inicio = true
 	get_tree().paused = false
+
+	combustivel_manager.combustivel = combustivel_manager.max_combustivel
 
 	obstacles.clear_all_spawned_obstacles()
 	combustiveis_controller.clear_all()
@@ -91,18 +107,19 @@ func update_high_score():
 		hud.show_high_score(high_score)
 
 func generate_obstacles():
-	if obstacles.spawned_obstacles.is_empty() or obstacles.last_spawned_obstactle.position.x < score + randi_range(300, 500):
+	if obstacles.spawned_obstacles.is_empty() or obstacles.last_spawned_obstactle.position.x < score + randi_range(200, 300):
 		var obstacle_type = obstacles.get_random_obstacle_type()
 		var obstacle
 		var max_obstacles = 2
 		var ground_y = $Ground.position.y
 
-		for i in range(randi() % max_obstacles + 1):
+		for i in range(randi() % max_obstacles + 0):
 			obstacle = obstacle_type.instantiate()
 			var sprite = obstacle.get_node("Sprite2D")
 			var obstacle_height = sprite.texture.get_height()
 			var obstacle_scale = sprite.scale
-			var obstacle_x = screen_size.x + score + 100 + (i * 100)
+			var random_spacing = randi_range(100, 400)
+			var obstacle_x = screen_size.x + score + 50 + (i * random_spacing)
 			var obstacle_y = ground_y - (obstacle_height * obstacle_scale.y / 2) + 565
 
 			obstacles.last_spawned_obstactle = obstacle
@@ -123,6 +140,7 @@ func add_obstacle(obstacle, x, y):
 func hit_obstacle(body):
 	if body.name == "Player" and not body.is_invulnerable:
 		$CharacterHurt.play()
+		combustivel_manager.remover_combustivel(100.0)
 		body.position.x -= body.knockback_distance
 		body.is_invulnerable = true
 		body.invulnerable_timer = body.invulnerable_time

@@ -21,8 +21,8 @@ const GHOST_WAVE_FREQUENCY := 2.0  # Velocidade da onda
 const GHOST_FOLLOW_SPEED := 2.0  # Suavização do movimento
 
 const GHOST_FADE_SPEED := 0.5  # Velocidade do efeito de aparecer/desaparecer
-const GHOST_MIN_ALPHA := 0.3  # Transparência mínima
-const GHOST_MAX_ALPHA := 0.8  # Transparência máxima
+const GHOST_MIN_ALPHA := 0.5  # Transparência mínima
+const GHOST_MAX_ALPHA := 1.0  # Transparência máxima
 
 # Dificuldade do Ghost
 const GHOST_SPEED_MULTIPLIERS := [0.8, 1.0, 1.2, 1.5]  # Multiplicadores por nível
