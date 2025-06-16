@@ -29,9 +29,6 @@ func _process(delta):
 	# Mostra sempre para debug
 	hud.show_combustivel(int(combustivel_manager.combustivel))
 	hud.show_score(score)
-	
-	# Debug: imprime o estado dos flags
-	print("DEBUG -> game_running:", game_running, " aguardando_inicio:", aguardando_inicio)
 
 	# Só consome combustível se o jogo estiver rodando e não estiver esperando start
 	consumir_combustivel_se_jogo_rodando(delta)

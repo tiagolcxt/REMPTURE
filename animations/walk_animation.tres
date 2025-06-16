@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://rp60kn5sqntu"]
+
+[ext_resource type="Texture2D" uid="uid://dtve30lp1d53p" path="res://assets/img/1.png" id="1_k1iy8"]
+[ext_resource type="Texture2D" uid="uid://d3sbhgggyo0id" path="res://assets/img/2.png" id="2_fft2g"]
+[ext_resource type="Texture2D" uid="uid://c82iw5yq4wq18" path="res://assets/img/3.png" id="3_1q8s0"]
+[ext_resource type="Texture2D" uid="uid://ippw74qkewqx" path="res://assets/img/4.png" id="4_t3dui"]
+[ext_resource type="Texture2D" uid="uid://bl1fmiwa6im2c" path="res://assets/img/6.png" id="5_4ny02"]
+[ext_resource type="Texture2D" uid="uid://b3vmma4u1034s" path="res://assets/img/5.png" id="6_0awte"]
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1q8s0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k1iy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fft2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1q8s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t3dui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ny02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0awte")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
