@@ -48,7 +48,7 @@ func _process(delta):
 		alpha_direction = 1
 
 	# Define a cor base (cinza médio)
-	var base_color = Color(0.2, 0.2, 0.2, 1.0)
+	var base_color = Color(0.0, 0.0, 0.0, 1.0)
 	# Aplica o alpha alternado
 	base_color.a = current_alpha
 	sprite.modulate = base_color

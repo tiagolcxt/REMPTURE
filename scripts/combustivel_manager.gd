@@ -32,6 +32,6 @@ func atualizar_luz() -> void:
 
 	var proporcao: float = float(combustivel) / float(max_combustivel)
 	var min_scale := 0.2
-	var max_scale := 0.6
+	var max_scale := 0.8
 	var nova_escala: float = lerp(min_scale, max_scale, proporcao)
 	player_light.texture_scale = nova_escala

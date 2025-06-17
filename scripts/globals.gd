@@ -8,7 +8,7 @@ const SCORE_MODIFIER: int = 10
 const SPEED_MODIFIER: int = 5000
 
 const START_SPEED: float = 10.0
-const MAX_SPEED: int = 25
+const MAX_SPEED: int = 15
 const MAX_DIFFICULTY: int = 3
 
 # Constantes específicas para o Ghost

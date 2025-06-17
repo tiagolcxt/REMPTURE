@@ -9,17 +9,17 @@ const BASE_SPEED: float = 0.0
 @export var blink_interval := 0.1
 
 @onready var combustivel_manager = get_parent().get_node("CombustivelManager")
-@onready var animated_sprite = $AnimatedSprite2D  # Novo nó para animações
+@onready var animated_sprite = $AnimatedSprite2D
+@onready var camera := get_viewport().get_camera_2d()
 
 var is_invulnerable := false
 var blink_timer := 0.0
 var invulnerable_timer := 0.0
-var is_ducking := false  # Novo estado para agachamento
+var is_ducking := false
 
 func _ready():
-	# Carrega a animação walk_animation.tres
 	animated_sprite.sprite_frames = load("res://animations/walk_animation.tres")
-	animated_sprite.play("walk")  # Inicia com animação de caminhada
+	animated_sprite.play("walk")
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
@@ -27,36 +27,30 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if Input.is_action_pressed("ui_up"):
 			jump()
-		elif Input.is_action_pressed("ui_down"):
-			duck()
+		#elif Input.is_action_pressed("ui_down"):
+			#duck()
 		else:
-			# Se estiver no chão e não pulando/agachando, mostra animação de corrida
 			if not is_ducking:
 				animated_sprite.play("walk")
 	else:
-		# Se estiver no ar, mostra animação de pulo (se existir)
 		if animated_sprite.sprite_frames.has_animation("jump"):
 			animated_sprite.play("jump")
 
 	var combustivel_atual: float = combustivel_manager.combustivel
 	var velocidade_horizontal: float = BASE_SPEED
 
-# Permitir avanço até o ponto de parada (500)
-	if combustivel_atual > 700.0:
-		var destino = Globals.CHARACTER_START_POSITION.x
-		if position.x < destino:
-			velocidade_horizontal = BASE_SPEED + (combustivel_atual - 700)/5
-		else:
-			velocidade_horizontal = 0.0
+	# Calcula a posição do personagem relativa à tela
+	var pos_na_tela = position - camera.get_global_transform().origin + get_viewport_rect().size / 2
 
+	# Movimento baseado no combustível e posição na tela (limite de 500px à direita)
+	if combustivel_atual > 700.0 and pos_na_tela.x < 500.0:
+		velocidade_horizontal = BASE_SPEED + (combustivel_atual - 700) / 30.0
 	elif combustivel_atual < 300.0:
-		velocidade_horizontal = BASE_SPEED - (300 - combustivel_atual)/5
+		velocidade_horizontal = BASE_SPEED - (300 - combustivel_atual) / 30.0
 
 	velocity.x = velocidade_horizontal
-	print("X:", position.x, " -> Vel H:", velocidade_horizontal)
 	move_and_slide()
 
-	# Ajusta velocidade da animação conforme velocidade horizontal
 	if is_on_floor() and not is_ducking:
 		animated_sprite.speed_scale = 1.0 + (velocidade_horizontal - BASE_SPEED) / 100.0
 
@@ -71,7 +65,7 @@ func duck() -> void:
 	if animated_sprite.sprite_frames.has_animation("duck"):
 		animated_sprite.play("duck")
 	else:
-		animated_sprite.stop()  # Para a animação se não houver animação de duck
+		animated_sprite.stop()
 
 func _process(delta: float) -> void:
 	if is_invulnerable:
@@ -84,7 +78,7 @@ func _process(delta: float) -> void:
 			animated_sprite.modulate.a = 1.0
 			is_invulnerable = false
 	elif is_on_floor() and not is_ducking and not animated_sprite.is_playing():
-		animated_sprite.play("walk")  # Garante que a animação continue
+		animated_sprite.play("walk")
 
 func adicionar_combustivel(valor: float) -> void:
 	combustivel_manager.adicionar_combustivel(valor)

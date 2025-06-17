@@ -34,10 +34,9 @@ func _process(delta):
 	consumir_combustivel_se_jogo_rodando(delta)
 
 	if game_running and not aguardando_inicio:
-		speed = GLOBALS.START_SPEED
-
+		speed = min(GLOBALS.START_SPEED + score / GLOBALS.SPEED_MODIFIER, GLOBALS.MAX_SPEED)
 		difficulty = min(score / GLOBALS.SPEED_MODIFIER, GLOBALS.MAX_DIFFICULTY)
-
+		
 		generate_obstacles()
 		generate_combustivel()
 
@@ -104,29 +103,37 @@ func update_high_score():
 		hud.show_high_score(high_score)
 
 func generate_obstacles():
-	if obstacles.spawned_obstacles.is_empty() or obstacles.last_spawned_obstactle.position.x < score + randi_range(200, 300):
-		var obstacle_type = obstacles.get_random_obstacle_type()
-		var obstacle
-		var max_obstacles = 2
-		var ground_y = $Ground.position.y
+	# Só gera novos obstáculos quando o último estiver MUITO atrás (800-1200 pixels)
+	if not obstacles.spawned_obstacles.is_empty():
+		var last_obstacle_x = obstacles.last_spawned_obstactle.position.x
+		if last_obstacle_x > score - randi_range(800, 1200):
+			return
 
-		for i in range(randi() % max_obstacles + 0):
-			obstacle = obstacle_type.instantiate()
-			var sprite = obstacle.get_node("Sprite2D")
-			var obstacle_height = sprite.texture.get_height()
-			var obstacle_scale = sprite.scale
-			var random_spacing = randi_range(100, 400)
-			var obstacle_x = screen_size.x + score + 50 + (i * random_spacing)
-			var obstacle_y = ground_y - (obstacle_height * obstacle_scale.y / 2) + 565
+	var obstacle_type = obstacles.get_random_obstacle_type()
+	# No máximo 2 obstáculos por grupo, mesmo na dificuldade máxima
+	var max_obstacles = min(difficulty + 1, 2)
+	var ground_y = $Ground.position.y
 
-			obstacles.last_spawned_obstactle = obstacle
-			add_obstacle(obstacle, obstacle_x, obstacle_y)
+	# Gera de 1 a max_obstacles obstáculos
+	for i in range(randi() % max_obstacles + 1):
+		var obstacle = obstacle_type.instantiate()
+		var sprite = obstacle.get_node("Sprite2D")
+		var obstacle_height = sprite.texture.get_height()
+		var obstacle_scale = sprite.scale
+		
+		# Posiciona bem à direita (500) com grande espaçamento (400 entre obstáculos)
+		var obstacle_x = screen_size.x + score + 500 + (i * 100)
+		var obstacle_y = ground_y - (obstacle_height * obstacle_scale.y / 2) + 565
 
-		if difficulty == GLOBALS.MAX_DIFFICULTY and randi() % 2 == 0:
-			obstacle = obstacles.BIRD_SCENE.instantiate()
-			var obstacle_x = screen_size.x + score + 100
-			var obstacle_y = obstacles.get_random_bird_spawn_height()
-			add_obstacle(obstacle, obstacle_x, obstacle_y)
+		obstacles.last_spawned_obstactle = obstacle
+		add_obstacle(obstacle, obstacle_x, obstacle_y)
+
+	# Pássaros aparecem raramente (25% de chance) e MUITO à direita
+	if difficulty == GLOBALS.MAX_DIFFICULTY and (randi() % 4) == 0:
+		var obstacle = obstacles.BIRD_SCENE.instantiate()
+		var obstacle_x = screen_size.x + score + 800  # Pássaros extremamente à direita
+		var obstacle_y = obstacles.get_random_bird_spawn_height()
+		add_obstacle(obstacle, obstacle_x, obstacle_y)
 
 func add_obstacle(obstacle, x, y):
 	obstacle.position = Vector2i(x, y)

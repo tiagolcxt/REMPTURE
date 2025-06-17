@@ -1,17 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://hem0vjcahe57"]
+[gd_scene load_steps=5 format=3 uid="uid://hem0vjcahe57"]
 
 [ext_resource type="Script" uid="uid://bfw62qatst5sv" path="res://scripts/combustivel.gd" id="1_lx1dj"]
-[ext_resource type="Texture2D" uid="uid://clqyxjuuev0r3" path="res://assets/img/Borboleta Fantasmagórica Brilhante.png" id="1_uejwe"]
+[ext_resource type="Texture2D" uid="uid://6vjyiw6ee3b6" path="res://assets/img/128x128 textures (38).png" id="2_lx1dj"]
+[ext_resource type="Texture2D" uid="uid://cr4rn1tuj5tg4" path="res://assets/img/128x128 textures (38)-Photoroom.png" id="2_upar2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lx1dj"]
-radius = 38.2099
+radius = 18.0278
 
 [node name="Combustivel" type="Area2D"]
 script = ExtResource("1_lx1dj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.09, 0.09)
-texture = ExtResource("1_uejwe")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_upar2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.449219, 0.449219)
+color = Color(1, 1, 0, 1)
+energy = 2.23
+range_layer_min = -100
+range_layer_max = 1
+texture = ExtResource("2_lx1dj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lx1dj")

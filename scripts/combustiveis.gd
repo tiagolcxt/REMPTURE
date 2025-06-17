@@ -5,12 +5,12 @@ var combustiveis: Array = []
 var last_combustivel_x = 0
 
 func generate_combustivel(score: int, screen_size: Vector2i, ground_y: int) -> Area2D:
-	if combustiveis.is_empty() or last_combustivel_x < score + randi_range(400, 800):
+	if combustiveis.is_empty() or last_combustivel_x < score + randi_range(500, 1200):
 		var c = COMBUSTIVEL_SCENE.instantiate()
 		var sprite = c.get_node("Sprite2D")
 		var c_height = sprite.texture.get_height()
 		var c_scale = sprite.scale
-		var x = screen_size.x + score + randi_range(200, 500)
+		var x = screen_size.x + score + randi_range(200, 1000)
 		var y = ground_y - (c_height * c_scale.y / 2) + 365 + randi_range(-100, 100)
 
 		c.position = Vector2i(x, y)
