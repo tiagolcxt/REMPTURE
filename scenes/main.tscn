@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxhxs1t68mnu7"]
+[gd_scene load_steps=14 format=3 uid="uid://cxhxs1t68mnu7"]
 
 [ext_resource type="Script" uid="uid://deeede0i4iw5l" path="res://scripts/main.gd" id="1_adgqn"]
 [ext_resource type="PackedScene" uid="uid://dx7lwrwftm8oe" path="res://scenes/parallax_background.tscn" id="1_w1cr1"]
@@ -6,9 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cufenoygodkl1" path="res://scenes/character.tscn" id="3_ir76f"]
 [ext_resource type="PackedScene" uid="uid://hdsox5ob3ahb" path="res://scenes/hud.tscn" id="5_fewo3"]
 [ext_resource type="PackedScene" uid="uid://krrn8dgeni12" path="res://scenes/game_over.tscn" id="6_jk37s"]
-[ext_resource type="AudioStream" uid="uid://bw55jlexk2dby" path="res://assets/sound/hurt.wav" id="8_b564n"]
+[ext_resource type="AudioStream" uid="uid://cnesthpd5mlgd" path="res://assets/sound/colisão.wav" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://dkwbq2wxa1p0p" path="res://scenes/ghost.tscn" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://rlaj6hybb06w" path="res://assets/sound/coleta de luz.wav" id="8_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://f8g1wpr4i0rj" path="res://scenes/CombustivelManager.tscn" id="10_choun"]
+[ext_resource type="AudioStream" uid="uid://cx40cbxkb7oue" path="res://assets/sound/salto.wav" id="11_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://4ypp7mbhtpfg" path="res://assets/sound/sopro continuo.wav" id="12_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://d06t8re2817iu" path="res://assets/sound/sopro ghost.mp3" id="13_trceg"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_adgqn")
@@ -31,11 +35,38 @@ position = Vector2(576, 324)
 [node name="GameOver" parent="." instance=ExtResource("6_jk37s")]
 process_mode = 2
 
-[node name="CharacterHurt" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("8_b564n")
-
 [node name="Ghost" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(-88, -72)
 
 [node name="CombustivelManager" parent="." instance=ExtResource("10_choun")]
+
+[node name="CharacterHurt" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_choun")
+volume_db = -10.0
+
+[node name="ColetaDeLuz" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_ya4ey")
+volume_db = -30.0
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_ya4ey")
+pitch_scale = 1.7
+
+[node name="SoproContinuo" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("12_eb6dy")
+volume_db = -30.0
+pitch_scale = 0.7
+
+[node name="GhostSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("13_trceg")
+volume_db = -30.0
+
+[node name="ThunderSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_ya4ey")
+volume_db = -30.0

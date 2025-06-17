@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dkwbq2wxa1p0p"]
 
 [ext_resource type="Script" uid="uid://075dq7uqml72" path="res://scripts/ghost.gd" id="1_bbnym"]
-[ext_resource type="Texture2D" uid="uid://d1d7xltfwlsnh" path="res://assets/img/background/fantasma-Photoroom.png" id="2_l5lq6"]
 [ext_resource type="Texture2D" uid="uid://bafmvp2hodaap" path="res://assets/img/background/light2d.webp" id="3_bbnym"]
+[ext_resource type="Texture2D" uid="uid://dyuj2ekvk8jdu" path="res://assets/img/background/teste_ghost_3-Photoroom.png" id="3_veat2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bbnym"]
 light_mode = 1
@@ -16,31 +16,32 @@ script = ExtResource("1_bbnym")
 [node name="PointLight2D2" type="PointLight2D" parent="."]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(47, 15)
-scale = Vector2(0.0185547, 0.0146484)
+position = Vector2(76, -24)
+scale = Vector2(0.03125, 0.034375)
+energy = 16.0
+range_layer_min = -100
 texture = ExtResource("3_bbnym")
 texture_scale = 2.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(54.625, 14.875)
-scale = Vector2(0.0185547, 0.0146484)
-energy = 2.5
-range_layer_min = 1
+position = Vector2(90, -22)
+scale = Vector2(0.0703125, 0.0683594)
+energy = 16.0
+range_layer_min = -100
 range_layer_max = 1
 texture = ExtResource("3_bbnym")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_bbnym")
-position = Vector2(-36, -72.2626)
-scale = Vector2(0.222743, 0.186567)
-texture = ExtResource("2_l5lq6")
+position = Vector2(-29, -67.1446)
+scale = Vector2(0.203986, 0.170856)
+texture = ExtResource("3_veat2")
 centered = false
-flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(48, 45)
+position = Vector2(-122, 7)
 shape = SubResource("RectangleShape2D_l5lq6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
