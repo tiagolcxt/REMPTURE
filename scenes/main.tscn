@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxhxs1t68mnu7"]
+[gd_scene load_steps=16 format=3 uid="uid://cxhxs1t68mnu7"]
 
 [ext_resource type="Script" uid="uid://deeede0i4iw5l" path="res://scripts/main.gd" id="1_adgqn"]
 [ext_resource type="PackedScene" uid="uid://dx7lwrwftm8oe" path="res://scenes/parallax_background.tscn" id="1_w1cr1"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://cx40cbxkb7oue" path="res://assets/sound/salto.wav" id="11_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://4ypp7mbhtpfg" path="res://assets/sound/sopro continuo.wav" id="12_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://d06t8re2817iu" path="res://assets/sound/sopro ghost.mp3" id="13_trceg"]
+[ext_resource type="AudioStream" uid="uid://cuacagg8e2fsx" path="res://assets/sound/thunder.wav" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://mrj56duy2sbg" path="res://assets/sound/thunder bells.wav" id="15_jkv2x"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_adgqn")
@@ -68,5 +70,11 @@ volume_db = -30.0
 
 [node name="ThunderSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("8_ya4ey")
-volume_db = -30.0
+stream = ExtResource("14_a8y0u")
+volume_db = -12.683
+pitch_scale = 1.4
+
+[node name="BellSound" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("15_jkv2x")
+volume_db = -12.683

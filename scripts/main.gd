@@ -7,6 +7,8 @@ var hud: Hud
 @onready var combustivel_manager = $CombustivelManager
 @onready var sopro_continuo = $SoproContinuo
 @onready var ghost_sound = $GhostSound
+@onready var thunder_sound = $ThunderSound
+@onready var bell_sound = $BellSound
 
 var screen_size: Vector2i
 var ground_height: int
@@ -21,6 +23,7 @@ var high_score: int = 0
 
 var proximo_sopro_score: int = 6000
 var ultimo_ghost_sound_score: int = -800  # Inicializado para permitir o primeiro toque
+var proximo_thunder_score: int = 0  # Será definido no start_new_game()
 
 func _ready():
 	hud = Hud.new($HUD)
@@ -60,6 +63,12 @@ func _process(delta):
 				ghost_sound.play()
 				ultimo_ghost_sound_score = score
 
+		# Lógica para o som de trovão
+		if score >= proximo_thunder_score:
+			if thunder_sound and not thunder_sound.playing:
+				thunder_sound.play()
+				proximo_thunder_score = score + randi_range(5000, 12000)
+
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x += screen_size.x
 
@@ -87,6 +96,7 @@ func start_new_game():
 	aguardando_inicio = true
 	proximo_sopro_score = 600
 	ultimo_ghost_sound_score = -800  # Reseta para permitir toque inicial
+	proximo_thunder_score = randi_range(3000, 8000)  # Define o primeiro threshold aleatório
 	get_tree().paused = false
 
 	combustivel_manager.combustivel = combustivel_manager.max_combustivel
@@ -158,6 +168,11 @@ func game_over():
 	update_high_score()
 	get_tree().paused = true
 	game_running = false
+	
+	# Toca o som de sino quando o jogo acaba
+	if bell_sound:
+		bell_sound.play()
+	
 	$GameOver.show()
 
 func generate_combustivel():
