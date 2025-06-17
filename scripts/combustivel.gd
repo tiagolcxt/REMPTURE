@@ -7,6 +7,6 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		body.adicionar_combustivel(80)  # Valor de combustível a ser adicionado
+		body.adicionar_combustivel(100)  # Valor de combustível a ser adicionado
 		emit_signal("collected", self)
 		queue_free()
