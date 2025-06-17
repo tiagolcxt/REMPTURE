@@ -52,10 +52,11 @@ process_mode = 3
 stream = ExtResource("8_ya4ey")
 volume_db = -30.0
 
-[node name="Walk" type="AudioStreamPlayer" parent="."]
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("11_ya4ey")
-pitch_scale = 1.7
+volume_db = -50.0
+pitch_scale = 2.04
 
 [node name="SoproContinuo" type="AudioStreamPlayer" parent="."]
 process_mode = 3

@@ -8,7 +8,7 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5lq6"]
-size = Vector2(164.5, 218)
+size = Vector2(112, 515)
 
 [node name="Ghost" type="Node2D"]
 script = ExtResource("1_bbnym")
@@ -20,6 +20,7 @@ position = Vector2(76, -24)
 scale = Vector2(0.03125, 0.034375)
 energy = 16.0
 range_layer_min = -100
+range_layer_max = 1
 texture = ExtResource("3_bbnym")
 texture_scale = 2.5
 
@@ -41,7 +42,7 @@ centered = false
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-122, 7)
+position = Vector2(66, 46.5)
 shape = SubResource("RectangleShape2D_l5lq6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
