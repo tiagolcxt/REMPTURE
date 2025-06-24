@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxhwj1l1jd4f2"]
+
+[ext_resource type="Texture2D" uid="uid://bmov3k7yrljyg" path="res://assets/img/background/Evolução do Raio em Quatro Etapas - Copia (2).png" id="1_8ijbb"]
+
+[node name="raio" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ijbb")

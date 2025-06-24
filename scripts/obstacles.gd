@@ -6,7 +6,7 @@ const BARREL_SCENE = preload("res://scenes/barrel.tscn")
 const BIRD_SCENE = preload("res://scenes/bird.tscn")
 
 var obstacle_types := [STUMP_SCENE, ROCK_SCENE, BARREL_SCENE]
-var bird_spawn_heights := [220, 380]
+var bird_spawn_heights := [200, 480]
 var spawned_obstacles : Array
 var last_spawned_obstactle: Object
 

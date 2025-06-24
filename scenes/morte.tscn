@@ -1,0 +1,309 @@
+[gd_scene load_steps=9 format=3 uid="uid://byimx7srqnqc5"]
+
+[ext_resource type="Script" uid="uid://bgpmyfgytifs3" path="res://scenes/interface/menu.gd" id="1_l5ukl"]
+[ext_resource type="Texture2D" uid="uid://d4nacmhbvqip0" path="res://assets/img/background/c├®u.png" id="2_ers4m"]
+[ext_resource type="Texture2D" uid="uid://bmrl80085lt83" path="res://assets/img/background/ChatGPT Image 18 de mai. de 2025, 14_45_22.png" id="3_lyv5u"]
+[ext_resource type="FontFile" uid="uid://c2figtimybux8" path="res://fonts/CF Tetragone.otf" id="4_ers4m"]
+[ext_resource type="Theme" uid="uid://ck6gmha58q756" path="res://MORTE.tres" id="5_lyv5u"]
+
+[sub_resource type="Animation" id="Animation_bf4gx"]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.270222, 0.270222, 0.270222, 1), Color(1, 0.372549, 0.368627, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.270588, 0.270588, 0.270588, 1), Color(1, 0.372549, 0.368627, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Você Morreu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sim:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.16667, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Não:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.7, 3.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Continuar:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.1, 2.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Score:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.53333, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HighScore:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.53333, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s8du1"]
+resource_name = "Reveal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.262932, 0.262932, 0.262932, 0.941176), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.262745, 0.262745, 0.262745, 0.941176), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_173oo"]
+_data = {
+&"RESET": SubResource("Animation_bf4gx"),
+&"Reveal": SubResource("Animation_s8du1")
+}
+
+[node name="Morte" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5ukl")
+
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color(0.270588, 0.270588, 0.270588, 1)
+layout_mode = 0
+offset_left = 138.0
+offset_top = -2.0
+offset_right = 1674.0
+offset_bottom = 668.0
+texture = ExtResource("2_ers4m")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.270222, 0.270222, 0.270222, 1)
+layout_mode = 0
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 1820.0
+offset_bottom = 815.0
+texture = ExtResource("3_lyv5u")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Score" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -76.5
+offset_right = 106.5
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ers4m")
+theme_override_font_sizes/font_size = 40
+text = "SCORE	: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -21.5
+offset_right = 173.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ers4m")
+theme_override_font_sizes/font_size = 40
+text = "HIGH SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Você Morreu" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -429.5
+offset_top = -221.5
+offset_right = 429.5
+offset_bottom = -70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.396078, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ers4m")
+theme_override_font_sizes/font_size = 150
+text = "VOCE MORREU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continuar" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.5
+offset_top = 55.5
+offset_right = 416.5
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ers4m")
+theme_override_font_sizes/font_size = 50
+text = "Continuar?"
+horizontal_alignment = 1
+
+[node name="Sim" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.5
+offset_top = -175.0
+offset_right = -27.5
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+theme = ExtResource("5_lyv5u")
+text = "Sim"
+
+[node name="Não" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -184.0
+offset_right = 104.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+theme = ExtResource("5_lyv5u")
+text = "Nao"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_173oo")
+}
+autoplay = "RESET"
+
+[connection signal="pressed" from="Sim" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Sim" to="." method="_on_sim_pressed"]
+[connection signal="pressed" from="Não" to="." method="_on_não_pressed"]

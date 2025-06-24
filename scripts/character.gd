@@ -14,7 +14,7 @@ const BASE_SPEED: float = 0.0
 
 var is_invulnerable := false
 var blink_timer := 0.0
-var invulnerable_timer := 0.0
+var invulnerable_timer := 1.5
 var is_ducking := false
 
 func _ready():
@@ -44,9 +44,9 @@ func _physics_process(delta: float) -> void:
 
 	# Movimento baseado no combustível e posição na tela (limite de 500px à direita)
 	if combustivel_atual > 700.0 and pos_na_tela.x < 500.0:
-		velocidade_horizontal = BASE_SPEED + (combustivel_atual - 700) / 30.0
+		velocidade_horizontal = BASE_SPEED + (combustivel_atual - 700) / 25.0
 	elif combustivel_atual < 300.0:
-		velocidade_horizontal = BASE_SPEED - (300 - combustivel_atual) / 30.0
+		velocidade_horizontal = BASE_SPEED - (300 - combustivel_atual) / 25.0
 
 	velocity.x = velocidade_horizontal
 	move_and_slide()

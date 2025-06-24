@@ -1,0 +1,295 @@
+[gd_scene load_steps=9 format=3 uid="uid://duoyghahf5oxv"]
+
+[ext_resource type="Texture2D" uid="uid://cis8nllag76q4" path="res://assets/logo.png" id="1_eal7j"]
+[ext_resource type="Script" uid="uid://bgpmyfgytifs3" path="res://scenes/interface/menu.gd" id="1_s8du1"]
+[ext_resource type="Texture2D" uid="uid://m6oeoogv16e" path="res://assets/img/background/cÔö£┬«u.png" id="2_bf4gx"]
+[ext_resource type="Texture2D" uid="uid://bmrl80085lt83" path="res://assets/img/background/ChatGPT Image 18 de mai. de 2025, 14_45_22.png" id="2_s8du1"]
+[ext_resource type="AudioStream" uid="uid://bbqgm7sihouc2" path="res://assets/sound/WhatsApp-Audio-2025-06-24-at-02.07.39.mp3" id="5_bf4gx"]
+
+[sub_resource type="Animation" id="Animation_173oo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Background2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Jogar:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Controles:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Sobre:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Sair:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bf4gx"]
+resource_name = "abertura"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.625597, 0.625597, 0.625597, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Background2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.627451, 0.627451, 0.627451, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.33333, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Jogar:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.16667, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Controles:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.16667, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Sobre:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.16667, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../MarginContainer/HBoxContainer/VBoxContainer/Sair:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.16667, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5ar0"]
+_data = {
+&"RESET": SubResource("Animation_173oo"),
+&"abertura": SubResource("Animation_bf4gx")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s8du1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath(".")
+libraries = {
+&"": SubResource("AnimationLibrary_w5ar0")
+}
+autoplay = "abertura"
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = -2.0
+offset_right = 1674.0
+offset_bottom = 668.0
+texture = ExtResource("2_bf4gx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 1820.0
+offset_bottom = 815.0
+texture = ExtResource("2_s8du1")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.914
+offset_top = -321.0
+offset_right = 335.914
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eal7j")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -261.0
+offset_right = 87.0
+offset_bottom = 261.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.979328)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Jogar" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Jogar"
+
+[node name="Controles" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Controles"
+
+[node name="Sobre" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Sobre"
+
+[node name="Sair" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Sair"
+
+[node name="MusicaTema" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bf4gx")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Sobre" to="." method="_on_sobre_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

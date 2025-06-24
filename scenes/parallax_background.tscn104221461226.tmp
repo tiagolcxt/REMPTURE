@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx7lwrwftm8oe"]
+
+[ext_resource type="Texture2D" uid="uid://bl0j5tk81q2jq" path="res://assets/img/background/céu.png" id="1_yqcdc"]
+[ext_resource type="Script" uid="uid://oasmxrmuc108" path="res://scripts/external_decorations_container.gd" id="2_r7lvs"]
+[ext_resource type="Texture2D" uid="uid://cgyfksyn1r4aw" path="res://assets/img/background/parede2.png" id="2_yqcdc"]
+[ext_resource type="Script" uid="uid://bdwmhfo4a2or3" path="res://scripts/internal_decorations_container.gd" id="4_ljpgv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yqcdc"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer_externo" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.667)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_externo"]
+texture_filter = 1
+position = Vector2(0, -113)
+scale = Vector2(0.75, 0.743164)
+texture = ExtResource("1_yqcdc")
+centered = false
+
+[node name="ExternalDecorationsContainer" type="Node2D" parent="ParallaxLayer_externo"]
+script = ExtResource("2_r7lvs")
+
+[node name="Marker2D" type="Marker2D" parent="ParallaxLayer_externo/ExternalDecorationsContainer" groups=["external_decoration_markers"]]
+position = Vector2(600, 200)
+metadata/raio = ""
+metadata/z_index = 1
+
+[node name="Marker2D2" type="Marker2D" parent="ParallaxLayer_externo/ExternalDecorationsContainer" groups=["external_decoration_markers"]]
+
+[node name="ParallaxLayer_intern" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer_intern"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_yqcdc")
+use_parent_material = true
+position = Vector2(0, -115)
+scale = Vector2(1.05302, 0.632813)
+texture = ExtResource("2_yqcdc")
+centered = false
+
+[node name="InternalDecorationsContainer" type="Node2D" parent="ParallaxLayer_intern"]
+script = ExtResource("4_ljpgv")
+parallax_layer_path = NodePath("..")
+
+[node name="Marker2D" type="Marker2D" parent="ParallaxLayer_intern/InternalDecorationsContainer" groups=["internal_decoration_markers"]]
+position = Vector2(700, 380)
+metadata/gato = ""
+metadata/z_index = 2
+
+[node name="Marker2D2" type="Marker2D" parent="ParallaxLayer_intern/InternalDecorationsContainer" groups=["internal_decoration_markers"]]
+position = Vector2(1000, 220)
+metadata/quadro = ""
+metadata/z_index = 1
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.5, 1)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://beo25occ37ros" path="res://assets/img/obstacles/ratos - Copia.png" id="1_c6xkf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qs86r"]
-size = Vector2(57.75, 36.5)
+size = Vector2(47.5, 32.25)
 
 [node name="Stump" type="Area2D"]
 scale = Vector2(2, 2)
@@ -14,4 +14,5 @@ scale = Vector2(0.120579, 0.120579)
 texture = ExtResource("1_c6xkf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 2.125)
 shape = SubResource("RectangleShape2D_qs86r")

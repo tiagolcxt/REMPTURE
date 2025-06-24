@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://hdsox5ob3ahb"]
+[gd_scene load_steps=6 format=3 uid="uid://hdsox5ob3ahb"]
 
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_avnpt"]
+[ext_resource type="FontFile" uid="uid://btyggbvvewa13" path="res://assets/fonts/CF Tetragone.ttf" id="1_uo2fv"]
+[ext_resource type="PackedScene" uid="uid://qxy5ku7hdke3" path="res://scenes/texture_progress_bar.tscn" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://b13mgtld36yhl" path="res://assets/img/vela_da_Barra.png" id="3_6fi6k"]
+[ext_resource type="Script" uid="uid://d0aumixkr2k0g" path="res://scripts/texture_progress_bar.gd" id="3_uo2fv"]
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_right = 168.0
 offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_uo2fv")
 theme_override_font_sizes/font_size = 40
 text = "SCORE	: 0"
 horizontal_alignment = 1
@@ -20,7 +25,8 @@ anchor_right = 1.0
 offset_left = -303.0
 offset_bottom = 51.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_uo2fv")
 theme_override_font_sizes/font_size = 40
 text = "HIGH SCORE: 0"
 horizontal_alignment = 1
@@ -38,7 +44,7 @@ offset_right = 84.0
 offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_fonts/font = ExtResource("1_uo2fv")
 theme_override_font_sizes/font_size = 40
 text = "PRESS SPACE TO PLAY"
 horizontal_alignment = 1
@@ -52,7 +58,7 @@ offset_top = -106.0
 offset_right = 464.0
 offset_bottom = -51.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_avnpt")
+theme_override_fonts/font = ExtResource("1_uo2fv")
 theme_override_font_sizes/font_size = 40
 text = "ARROW UP 	⇑  - JUMP"
 horizontal_alignment = 1
@@ -65,6 +71,7 @@ anchor_bottom = 1.0
 offset_top = -55.0
 offset_right = 530.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("1_avnpt")
 theme_override_font_sizes/font_size = 40
 text = "ARROW DOWN ⇓  - DUCK"
@@ -72,10 +79,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CombustivelLabel" type="Label" parent="."]
-offset_left = 451.0
-offset_top = 6.0
-offset_right = 484.0
-offset_bottom = 30.0
-theme_override_fonts/font = ExtResource("1_avnpt")
+offset_left = 520.0
+offset_top = 8.0
+offset_right = 710.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_uo2fv")
 text = "Combustível: 1000"
 uppercase = true
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("2_5ysmq")]
+visible = false
+offset_left = 311.0
+offset_top = 23.0
+offset_right = 2831.0
+offset_bottom = 92.0
+max_value = 1000.0
+value = 1000.0
+script = ExtResource("3_uo2fv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(498, 22)
+scale = Vector2(0.108726, 0.108726)
+texture = ExtResource("3_6fi6k")

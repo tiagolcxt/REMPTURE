@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr63il3c1v6ts"]
+
+[ext_resource type="Texture2D" uid="uid://ct4sqy3w5tnc7" path="res://assets/img/background/gato - rabo curvado.png" id="1_0d640"]
+[ext_resource type="Texture2D" uid="uid://bafmvp2hodaap" path="res://assets/img/background/light2d.webp" id="2_85aii"]
+
+[sub_resource type="GDScript" id="GDScript_0d640"]
+
+[node name="gato" type="Node2D"]
+script = SubResource("GDScript_0d640")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_0d640")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-264.163, -207.864)
+rotation = -0.0872665
+scale = Vector2(0.109375, 0.166962)
+color = Color(1, 0, 0, 1)
+energy = 5.0
+texture = ExtResource("2_85aii")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(-168.154, -207.71)
+rotation = 0.872665
+scale = Vector2(0.130488, 0.240507)
+color = Color(1, 0, 0, 1)
+energy = 5.0
+texture = ExtResource("2_85aii")

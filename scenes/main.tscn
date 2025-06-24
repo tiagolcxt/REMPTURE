@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxhxs1t68mnu7"]
+[gd_scene load_steps=17 format=3 uid="uid://cxhxs1t68mnu7"]
 
 [ext_resource type="Script" uid="uid://deeede0i4iw5l" path="res://scripts/main.gd" id="1_adgqn"]
 [ext_resource type="PackedScene" uid="uid://dx7lwrwftm8oe" path="res://scenes/parallax_background.tscn" id="1_w1cr1"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d06t8re2817iu" path="res://assets/sound/sopro ghost.mp3" id="13_trceg"]
 [ext_resource type="AudioStream" uid="uid://cuacagg8e2fsx" path="res://assets/sound/thunder.wav" id="14_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://mrj56duy2sbg" path="res://assets/sound/thunder bells.wav" id="15_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://hem0vjcahe57" path="res://scenes/combustivel.tscn" id="16_jbj1t"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_adgqn")
@@ -37,15 +38,15 @@ position = Vector2(576, 324)
 [node name="GameOver" parent="." instance=ExtResource("6_jk37s")]
 process_mode = 2
 
-[node name="Ghost" parent="." instance=ExtResource("8_tipki")]
-position = Vector2(-88, -72)
-
 [node name="CombustivelManager" parent="." instance=ExtResource("10_choun")]
 
 [node name="CharacterHurt" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("7_choun")
 volume_db = -10.0
+
+[node name="Ghost" parent="." instance=ExtResource("8_tipki")]
+position = Vector2(-88, -72)
 
 [node name="ColetaDeLuz" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -79,3 +80,6 @@ pitch_scale = 1.4
 process_mode = 3
 stream = ExtResource("15_jkv2x")
 volume_db = -12.683
+
+[node name="Combustivel" parent="." instance=ExtResource("16_jbj1t")]
+position = Vector2(893, 408)

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://qxy5ku7hdke3"]
+
+[ext_resource type="Texture2D" uid="uid://bbqx5hks2svgd" path="res://assets/img/vecteezy_concrete-wall-yellow-color-for-texture-background-abstract_16596770-Photoroom.png" id="1_8o6hb"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+custom_minimum_size = Vector2(2, 0)
+offset_right = 2520.0
+offset_bottom = 69.0
+scale = Vector2(0.215, 0.3)
+value = 100.0
+fill_mode = 6
+texture_progress = ExtResource("1_8o6hb")

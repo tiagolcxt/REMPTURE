@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://co3g0jox0sggk"]
+
+[ext_resource type="Script" uid="uid://bgpmyfgytifs3" path="res://scenes/interface/menu.gd" id="1_hlbwh"]
+[ext_resource type="Texture2D" uid="uid://bl0j5tk81q2jq" path="res://assets/img/background/céu.png" id="2_hlbwh"]
+[ext_resource type="Texture2D" uid="uid://bmrl80085lt83" path="res://assets/img/background/ChatGPT Image 18 de mai. de 2025, 14_45_22.png" id="3_8jeky"]
+[ext_resource type="Theme" uid="uid://cp0r64husr6na" path="res://temabotÔö£├║o.tres" id="4_iwufw"]
+[ext_resource type="FontFile" uid="uid://c2figtimybux8" path="res://assets/fonts/CF Tetragone.otf" id="5_vra5w"]
+
+[node name="Sobre" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hlbwh")
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = -2.0
+offset_right = 1674.0
+offset_bottom = 668.0
+texture = ExtResource("2_hlbwh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -30.0
+offset_right = 1820.0
+offset_bottom = 815.0
+texture = ExtResource("3_8jeky")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 2
+offset_left = 979.0
+offset_top = 3.0
+offset_right = 1153.0
+offset_bottom = 63.0
+size_flags_vertical = 4
+theme = ExtResource("4_iwufw")
+text = "Voltar"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -867.5
+offset_top = -156.5
+offset_right = 867.5
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_vra5w")
+theme_override_font_sizes/font_size = 35
+text = "REMPTURE e um jogo de terror psicologico em plataforma auto-runner.
+Nele, voce controla um menino preso em um pesadelo, fugindo da escuridao que o persegue.
+A unica luz e a chama de uma vela, que consome combustivel com o tempo e com os erros.
+Quando ela se apaga... a escuridao vence."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -759.0
+offset_top = 31.0
+offset_right = 759.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_vra5w")
+theme_override_font_sizes/font_size = 35
+text = "O jogo combina arte vetorial sombria, iluminacao dinamica e efeitos de parallax 
+para criar uma experiencia curta, intensa e imersiva.
+Uma unica fase. 
+Uma unica chance. 
+Sobreviva."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://drhuri5b2s1yd" path="res://assets/img/obstacles/gargula - 1.png" id="1_1di36"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mek2u"]
-size = Vector2(76.4167, 100)
+size = Vector2(58.6667, 99.3333)
 
 [node name="Rock" type="Area2D"]
 texture_filter = 1
@@ -14,5 +14,5 @@ scale = Vector2(0.235674, 0.235674)
 texture = ExtResource("1_1di36")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.125, 2.66667)
+position = Vector2(3.33333, 3)
 shape = SubResource("RectangleShape2D_mek2u")

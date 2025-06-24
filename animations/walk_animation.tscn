@@ -5,3 +5,5 @@
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_1jotj")
 animation = &"walk"
+frame = 5
+frame_progress = 1.0

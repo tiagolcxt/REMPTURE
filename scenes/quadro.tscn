@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu63xqifrrsjy"]
+
+[ext_resource type="Texture2D" uid="uid://bnky5vefyum7m" path="res://assets/img/background/ChatGPT Image 19 de mai. de 2025, 18_56_19.png" id="1_g4rjg"]
+[ext_resource type="Texture2D" uid="uid://bafmvp2hodaap" path="res://assets/img/background/light2d.webp" id="2_xgxgv"]
+
+[sub_resource type="GDScript" id="GDScript_g4rjg"]
+
+[node name="quadro" type="Node2D"]
+script = SubResource("GDScript_g4rjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 17
+visibility_layer = 17
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_g4rjg")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(-107, -170)
+scale = Vector2(0.226563, 0.142578)
+color = Color(1, 0, 0, 1)
+energy = 4.0
+texture = ExtResource("2_xgxgv")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(1, -172)
+scale = Vector2(0.226563, 0.142578)
+color = Color(1, 0, 0, 1)
+energy = 4.0
+texture = ExtResource("2_xgxgv")

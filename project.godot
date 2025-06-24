@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="EndlessRunner"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://duoyghahf5oxv"
 config/features=PackedStringArray("4.4", "Mobile")
+
+[autoload]
+
+MusicManager="*res://scenes/music_manager.tscn"
 
 [display]
 
